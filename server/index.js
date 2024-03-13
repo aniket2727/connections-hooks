@@ -7,12 +7,19 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 require('./database/config');
-const authRouter = require('./router/Register.Router');
+const dotenv = require('dotenv');
+dotenv.config();
 
+
+
+
+const authRouter = require('./router/Register.Router');
+const LoginRouter=require('./router/Login.Router')
 
 
 // Use the authRouter for registration routes
 app.use('/auth', authRouter);
+app.use('/auth',LoginRouter);
 
 
 
